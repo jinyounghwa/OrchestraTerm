@@ -137,3 +137,12 @@ This project includes team orchestration primitives aligned to the ideas from th
 ## License
 
 MIT. See `LICENSE`.
+
+## Author
+jin younghwa
+
+## Contact
+
+- Email: timotolkie@gmail.com
+- linkedin: https://www.linkedin.com/in/younghwa-jin-05619643/ 
+
