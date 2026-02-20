@@ -4,6 +4,9 @@ OrchestraTerm is a macOS GUI terminal app with a multi-pane engine implemented i
 The team orchestration model in this project was designed with the Claude Code Agent Teams guide in mind:
 https://code.claude.com/docs/ko/agent-teams
 
+- License: MIT
+- Repository focus: GUI terminal + orchestration team engine for macOS
+
 ## What Is Implemented
 
 - Independent pane/session core (no tmux runtime dependency)
@@ -130,3 +133,7 @@ This project includes team orchestration primitives aligned to the ideas from th
 - Dependency-aware task claiming (`blocked` -> `pending` -> `in_progress` -> `done`)
 - Team messaging with priority and read/unread workflow
 - Member lifecycle controls (terminate/restart/prune) and recovery policy
+
+## License
+
+MIT. See `LICENSE`.
