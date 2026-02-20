@@ -1,6 +1,8 @@
 # OrchestraTerm
 
 OrchestraTerm is a macOS GUI terminal app with a multi-pane engine implemented in this repository.
+The team orchestration model in this project was designed with the Claude Code Agent Teams guide in mind:
+https://code.claude.com/docs/ko/agent-teams
 
 ## What Is Implemented
 
@@ -86,11 +88,45 @@ Current compatibility tests include:
 
 ## Package DMG
 
+### Prerequisites (macOS)
+
+- macOS (Apple Silicon target is currently packaged)
+- Xcode Command Line Tools (`xcode-select --install`)
+- Rust toolchain (`rustup` + stable toolchain)
+- `hdiutil` (bundled with macOS)
+
+### Build Steps
+
+1. Build and package app + DMG
+
 ```bash
 ./scripts/release-macos.sh
+```
+
+2. Verify checksum and DMG metadata
+
+```bash
 ./scripts/verify-release.sh
 ```
 
-Output:
+### Output
 
-- `dist/orchestraterm-0.2.0-macos-arm64.dmg`
+- DMG: `dist/orchestraterm-0.2.0-macos-arm64.dmg`
+- SHA256: `dist/orchestraterm-0.2.0-macos-arm64.sha256`
+
+### Install / Run from DMG
+
+1. Open `dist/orchestraterm-0.2.0-macos-arm64.dmg`
+2. Drag `OrchestraTerm.app` to `Applications`
+3. Launch `OrchestraTerm.app`
+
+### Agent Teams Design Notes
+
+This project includes team orchestration primitives aligned to the ideas from the Agent Teams guide:
+
+- Team display mode: `in_process`, `split_pane`, `auto`
+- Delegation-only operation mode
+- Plan approval gate before task execution
+- Dependency-aware task claiming (`blocked` -> `pending` -> `in_progress` -> `done`)
+- Team messaging with priority and read/unread workflow
+- Member lifecycle controls (terminate/restart/prune) and recovery policy
